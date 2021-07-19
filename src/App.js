@@ -9,7 +9,7 @@ const App = () => {
     if (e.key === 'Enter') {
       const data = await fetchWeather(query);
       setWeather(data);
-      setQuery(' ');
+      setQuery('');
     }
   };
   return (
@@ -17,7 +17,7 @@ const App = () => {
       <input
         type='text'
         className='search'
-        placeholder='Search...'
+        placeholder='Search.....'
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={search}
@@ -38,6 +38,7 @@ const App = () => {
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt={weather.weather[0].description}
             />
+            <p>Humidity:{weather.main.humidity}</p>
             <p>{weather.weather[0].description}</p>
           </div>
         </div>
